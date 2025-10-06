@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📝 Відгук про Навчання з Домедичної Допомоги</title>
     <style>
-        /* Основні стилі та кольори (Чорно-сіра гама) */
+        /* Основні стилі та кольори (Чорно-біла гама) */
         :root {
-            --primary-color: #00cc99; /* Контрастний жовто-зелений/бірюзовий */
+            --primary-color: #1a1a1a; /* Чорний акцент */
             --secondary-color: #555; /* Темно-сірий для фону форм */
             --background-color: #f0f0f0; /* Світло-сірий фон сторінки */
-            --container-bg: #333; /* Чорний/Темний фон контейнера */
-            --text-color-light: #fff; /* Білий колір шрифту */
-            --text-color-dark: #333;
+            --container-bg: #1a1a1a; /* Чорний фон контейнера */
+            --text-color-light: #fff; /* БІЛИЙ колір шрифту */
+            --text-color-dark: #000;
             --border-radius: 8px;
         }
 
@@ -32,37 +32,48 @@
             width: 100%;
             max-width: 650px;
             background-color: var(--container-bg);
-            padding: 30px;
+            padding: 0; /* Прибираємо внутрішній відступ */
             border-radius: var(--border-radius);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
             position: relative;
         }
         
-        /* Логотип у правому верхньому кутку */
+        /* Секція ЛОГОТИПУ (Чорна смуга з центруванням) */
+        .logo-header {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            text-align: center;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
         .logo {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 50px; /* Розмір для логотипу */
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
+            display: inline-block;
+            max-width: 80%; /* Обмеження ширини логотипу */
+            height: auto;
+            max-height: 80px; /* Максимальна висота логотипу */
         }
         .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Внутрішній контейнер для контенту (з відступами) */
+        .content-wrapper {
+            padding: 0 30px 30px 30px;
         }
 
         h1 {
-            color: var(--primary-color);
+            color: var(--text-color-light); /* Білий */
             text-align: center;
             margin-bottom: 20px;
             font-size: 1.8em;
         }
 
         h2 {
-            color: var(--primary-color);
+            color: var(--text-color-light); /* Білий */
             border-bottom: 2px solid var(--secondary-color);
             padding-bottom: 5px;
             margin-top: 30px;
@@ -89,10 +100,10 @@
             box-sizing: border-box;
             font-size: 1em;
             resize: vertical;
-            background-color: #444; /* Темний колір полів */
-            color: var(--text-color-light); /* Білий текст у полях */
+            background-color: #444; 
+            color: var(--text-color-light);
         }
-
+        
         /* Стилі для шкали оцінювання 1-5 */
         .rating-scale {
             display: flex;
@@ -101,9 +112,6 @@
             border-radius: var(--border-radius);
             margin-top: 10px;
             padding: 8px 15px;
-        }
-        .rating-scale .option {
-            text-align: center;
         }
         .rating-scale label {
             display: block;
@@ -119,8 +127,8 @@
             display: none;
         }
         .rating-scale input[type="radio"]:checked + label {
-            background-color: var(--primary-color);
-            color: var(--text-color-dark); /* Чорний текст на акцентному кольорі */
+            background-color: #fff; /* Білий фон для вибраної опції */
+            color: var(--text-color-dark); /* Чорний текст на білому фоні */
             font-weight: bold;
         }
 
@@ -136,8 +144,8 @@
         button {
             width: 100%;
             padding: 12px;
-            background-color: var(--primary-color);
-            color: var(--text-color-dark);
+            background-color: #fff; /* Біла кнопка */
+            color: var(--text-color-dark); /* Чорний текст на кнопці */
             border: none;
             border-radius: var(--border-radius);
             font-size: 1.1em;
@@ -148,20 +156,24 @@
         }
 
         button:hover {
-            background-color: #00e6a3;
+            background-color: #ddd;
         }
 
+        /* Повідомлення про успіх/помилку залишаємо контрастними */
         #responseMessage {
             margin-top: 15px;
             text-align: center;
             font-weight: bold;
-            color: var(--primary-color);
+            color: #00e600; /* Зелений для успіху */
         }
 
         /* Адаптація для мобільних */
         @media (max-width: 480px) {
             .container {
-                padding: 15px;
+                padding: 0;
+            }
+            .content-wrapper {
+                padding: 0 15px 15px 15px;
             }
             .rating-scale {
                 padding: 8px 5px;
@@ -177,82 +189,86 @@
 
 <div class="container">
     
-    <div class="logo">
-        <img src="https://raw.githubusercontent.com/shylovak-spec/vidguk/refs/heads/main/gloucestershireaerialinstallers.co.uk_--_482077032.jpg" alt="Логотип організації">
+    <div class="logo-header">
+        <div class="logo">
+            <img src="https://raw.githubusercontent.com/shylovak-spec/vidguk/refs/heads/main/gloucestershireaerialinstallers.co.uk_--_482077032.jpg" alt="Логотип організації">
+        </div>
     </div>
+    
+    <div class="content-wrapper">
+        <h1>🚑 Зворотний Зв'язок: Тренінг з Домедичної Допомоги</h1>
 
-    <h1>🚑 Зворотний Зв'язок: Тренінг з Домедичної Допомоги</h1>
+        <form id="feedbackForm">
 
-    <form id="feedbackForm">
+            <h2>Оцінка тренінгу (1 – найнижча, 5 – найвища)</h2>
 
-        <h2>Оцінка тренінгу (1 – найнижча, 5 – найвища)</h2>
-
-        <div class="form-group">
-            <label>1. Як ви оцінюєте тренінг загалом?</label>
-            <div class="rating-scale">
-                <input type="radio" id="q1_1" name="Загальна оцінка" value="1" required><label for="q1_1">1</label>
-                <input type="radio" id="q1_2" name="Загальна оцінка" value="2"><label for="q1_2">2</label>
-                <input type="radio" id="q1_3" name="Загальна оцінка" value="3"><label for="q1_3">3</label>
-                <input type="radio" id="q1_4" name="Загальна оцінка" value="4"><label for="q1_4">4</label>
-                <input type="radio" id="q1_5" name="Загальна оцінка" value="5"><label for="q1_5">5</label>
+            <div class="form-group">
+                <label>1. Як ви оцінюєте тренінг загалом?</label>
+                <div class="rating-scale">
+                    <input type="radio" id="q1_1" name="Загальна оцінка" value="1" required><label for="q1_1">1</label>
+                    <input type="radio" id="q1_2" name="Загальна оцінка" value="2"><label for="q1_2">2</label>
+                    <input type="radio" id="q1_3" name="Загальна оцінка" value="3"><label for="q1_3">3</label>
+                    <input type="radio" id="q1_4" name="Загальна оцінка" value="4"><label for="q1_4">4</label>
+                    <input type="radio" id="q1_5" name="Загальна оцінка" value="5"><label for="q1_5">5</label>
+                </div>
+                <div class="scale-description">
+                    <span>1 – Незадовільно</span>
+                    <span>5 – Відмінно</span>
+                </div>
             </div>
-            <div class="scale-description">
-                <span>1 – Незадовільно</span>
-                <span>5 – Відмінно</span>
+
+            <div class="form-group">
+                <label>2. Наскільки теми тренінгу були зрозумілими та корисними для вас?</label>
+                <div class="rating-scale">
+                    <input type="radio" id="q2_1" name="Зрозумілість/Корисність" value="1" required><label for="q2_1">1</label>
+                    <input type="radio" id="q2_2" name="Зрозумілість/Корисність" value="2"><label for="q2_2">2</label>
+                    <input type="radio" id="q2_3" name="Зрозумілість/Корисність" value="3"><label for="q2_3">3</label>
+                    <input type="radio" id="q2_4" name="Зрозумілість/Корисність" value="4"><label for="q2_4">4</label>
+                    <input type="radio" id="q2_5" name="Зрозумілість/Корисність" value="5"><label for="q2_5">5</label>
+                </div>
+                <div class="scale-description">
+                    <span>1 – Зовсім не корисно</span>
+                    <span>5 – Максимально корисно</span>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label>2. Наскільки теми тренінгу були зрозумілими та корисними для вас?</label>
-            <div class="rating-scale">
-                <input type="radio" id="q2_1" name="Зрозумілість/Корисність" value="1" required><label for="q2_1">1</label>
-                <input type="radio" id="q2_2" name="Зрозумілість/Корисність" value="2"><label for="q2_2">2</label>
-                <input type="radio" id="q2_3" name="Зрозумілість/Корисність" value="3"><label for="q2_3">3</label>
-                <input type="radio" id="q2_4" name="Зрозумілість/Корисність" value="4"><label for="q2_4">4</label>
-                <input type="radio" id="q2_5" name="Зрозумілість/Корисність" value="5"><label for="q2_5">5</label>
+            <div class="form-group">
+                <label>3. Чи відчуваєте ви, що зможете застосувати отримані знання на практиці?</label>
+                <div class="rating-scale">
+                    <input type="radio" id="q3_1" name="Застосовність знань" value="1" required><label for="q3_1">1</label>
+                    <input type="radio" id="q3_2" name="Застосовність знань" value="2"><label for="q3_2">2</label>
+                    <input type="radio" id="q3_3" name="Застосовність знань" value="3"><label for="q3_3">3</label>
+                    <input type="radio" id="q3_4" name="Застосовність знань" value="4"><label for="q3_4">4</label>
+                    <input type="radio" id="q3_5" name="Застосовність знань" value="5"><label for="q3_5">5</label>
+                </div>
+                <div class="scale-description">
+                    <span>1 – Ні, не впевнений</span>
+                    <span>5 – Так, повністю впевнений</span>
+                </div>
             </div>
-            <div class="scale-description">
-                <span>1 – Зовсім не корисно</span>
-                <span>5 – Максимально корисно</span>
+
+            <h2>Ваші коментарі та пропозиції</h2>
+
+            <div class="form-group">
+                <label for="q4_improve">4. Що, на вашу думку, можна покращити у проведенні тренінгу (метод подачі, час, практика)?</label>
+                <textarea id="q4_improve" name="Покращення проведення" placeholder="Ваші пропозиції..."></textarea>
             </div>
-        </div>
-
-        <div class="form-group">
-            <label>3. Чи відчуваєте ви, що зможете застосувати отримані знання на практиці?</label>
-            <div class="rating-scale">
-                <input type="radio" id="q3_1" name="Застосовність знань" value="1" required><label for="q3_1">1</label>
-                <input type="radio" id="q3_2" name="Застосовність знань" value="2"><label for="q3_2">2</label>
-                <input type="radio" id="q3_3" name="Застосовність знань" value="3"><label for="q3_3">3</label>
-                <input type="radio" id="q3_4" name="Застосовність знань" value="4"><label for="q3_4">4</label>
-                <input type="radio" id="q3_5" name="Застосовність знань" value="5"><label for="q3_5">5</label>
+            
+            <div class="form-group">
+                <label for="q5_change">5. Що варто змінити або додати в навчальну програму?</label>
+                <textarea id="q5_change" name="Зміни/Доповнення програми" placeholder="Конкретні теми чи навички..."></textarea>
             </div>
-            <div class="scale-description">
-                <span>1 – Ні, не впевнений</span>
-                <span>5 – Так, повністю впевнений</span>
+
+            <div class="form-group">
+                <label for="q6_wishes">6. Ваші пропозиції, коментарі чи побажання щодо наступних тренінгів:</label>
+                <textarea id="q6_wishes" name="Загальні побажання" placeholder="Ваш відгук..."></textarea>
             </div>
-        </div>
 
-        <h2>Ваші коментарі та пропозиції</h2>
+            <button type="submit">✅ Надіслати Відгук</button>
 
-        <div class="form-group">
-            <label for="q4_improve">4. Що, на вашу думку, можна покращити у проведенні тренінгу (метод подачі, час, практика)?</label>
-            <textarea id="q4_improve" name="Покращення проведення" placeholder="Ваші пропозиції..."></textarea>
-        </div>
-        
-        <div class="form-group">
-            <label for="q5_change">5. Що варто змінити або додати в навчальну програму?</label>
-            <textarea id="q5_change" name="Зміни/Доповнення програми" placeholder="Конкретні теми чи навички..."></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="q6_wishes">6. Ваші пропозиції, коментарі чи побажання щодо наступних тренінгів:</label>
-            <textarea id="q6_wishes" name="Загальні побажання" placeholder="Ваш відгук..."></textarea>
-        </div>
-
-        <button type="submit">✅ Надіслати Відгук</button>
-
-        <div id="responseMessage"></div>
-    </form>
+            <div id="responseMessage"></div>
+        </form>
+    </div>
 </div>
 
 <script>
@@ -260,14 +276,14 @@
         e.preventDefault();
         
         // !!! УВАГА: Замініть цей placeholder на реальний URL ВАШОГО РОЗГОРНУТОГО GOOGLE APPS SCRIPT! !!!
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyjvqTYghuaG6UWx6HEZA2TKUsVbQwxri3YehHAZL00HB7T93uua9FXcjFRkbgIyfAc/exec'; 
+        const scriptURL = 'https://script.google.com/macros/s/АКТУАЛЬНИЙ_ID_ВАШОГО_СКРИПТУ/exec'; 
         
         const form = e.target;
         const formData = new FormData(form);
         const responseMessage = document.getElementById('responseMessage');
 
         responseMessage.textContent = 'Відправка... ⏳';
-        responseMessage.style.color = 'var(--primary-color)';
+        responseMessage.style.color = '#fff'; // Білий текст під час відправки
         
         fetch(scriptURL, {
             method: 'POST',
@@ -276,7 +292,7 @@
         })
         .then(() => {
             responseMessage.textContent = '✅ Ваш відгук успішно надіслано! Дякуємо!';
-            responseMessage.style.color = 'var(--primary-color)';
+            responseMessage.style.color = '#00e600'; // Зелений для успіху
             form.reset();
             setTimeout(() => {
                 responseMessage.textContent = '';
