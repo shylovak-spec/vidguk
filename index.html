@@ -11,7 +11,7 @@
             --secondary-color: #555; /* Темно-сірий для фону форм */
             --background-color: #f0f0f0; /* Світло-сірий фон сторінки */
             --container-bg: #333; /* Чорний/Темний фон контейнера */
-            --text-color-light: #fff; /* ЗМІНЕНО: Білий колір шрифту */
+            --text-color-light: #fff; /* Білий колір шрифту */
             --text-color-dark: #333;
             --border-radius: 8px;
         }
@@ -45,7 +45,6 @@
             right: 15px;
             width: 50px; /* Розмір для логотипу */
             height: 50px;
-            /* Логотип не матиме фону, якщо використовується img */
             border-radius: 50%;
             overflow: hidden;
         }
@@ -260,8 +259,8 @@
     document.getElementById('feedbackForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // !!! ВАЖЛИВО: Замініть цей URL на URL вашого Google Apps Script !!!
-        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'; 
+        // !!! УВАГА: Замініть цей placeholder на реальний URL ВАШОГО РОЗГОРНУТОГО GOOGLE APPS SCRIPT! !!!
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyjvqTYghuaG6UWx6HEZA2TKUsVbQwxri3YehHAZL00HB7T93uua9FXcjFRkbgIyfAc/exec'; 
         
         const form = e.target;
         const formData = new FormData(form);
@@ -277,7 +276,7 @@
         })
         .then(() => {
             responseMessage.textContent = '✅ Ваш відгук успішно надіслано! Дякуємо!';
-            responseMessage.style.color = 'green';
+            responseMessage.style.color = 'var(--primary-color)';
             form.reset();
             setTimeout(() => {
                 responseMessage.textContent = '';
