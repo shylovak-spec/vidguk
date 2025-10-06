@@ -11,7 +11,7 @@
             --secondary-color: #555; /* Темно-сірий для фону форм */
             --background-color: #f0f0f0; /* Світло-сірий фон сторінки */
             --container-bg: #333; /* Чорний/Темний фон контейнера */
-            --text-color-light: #fff;
+            --text-color-light: #fff; /* ЗМІНЕНО: Білий колір шрифту */
             --text-color-dark: #333;
             --border-radius: 8px;
         }
@@ -45,14 +45,8 @@
             right: 15px;
             width: 50px; /* Розмір для логотипу */
             height: 50px;
-            background-color: var(--primary-color);
+            /* Логотип не матиме фону, якщо використовується img */
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--text-color-dark);
-            font-size: 0.8em;
             overflow: hidden;
         }
         .logo img {
@@ -97,7 +91,7 @@
             font-size: 1em;
             resize: vertical;
             background-color: #444; /* Темний колір полів */
-            color: var(--text-color-light);
+            color: var(--text-color-light); /* Білий текст у полях */
         }
 
         /* Стилі для шкали оцінювання 1-5 */
@@ -127,7 +121,7 @@
         }
         .rating-scale input[type="radio"]:checked + label {
             background-color: var(--primary-color);
-            color: var(--text-color-dark);
+            color: var(--text-color-dark); /* Чорний текст на акцентному кольорі */
             font-weight: bold;
         }
 
@@ -185,8 +179,8 @@
 <div class="container">
     
     <div class="logo">
-        <img src="https://example.com/your-logo.png" alt="Логотип">
-        </div>
+        <img src="https://raw.githubusercontent.com/shylovak-spec/vidguk/refs/heads/main/gloucestershireaerialinstallers.co.uk_--_482077032.jpg" alt="Логотип організації">
+    </div>
 
     <h1>🚑 Зворотний Зв'язок: Тренінг з Домедичної Допомоги</h1>
 
